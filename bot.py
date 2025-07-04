@@ -45,8 +45,8 @@ def set_language(call):
         'pl': "📸 Zobacz moje prace lub dodaj swoje!"
     }
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton("🖼 Портфолио / Portfolio", callback_data='view_portfolio'))
-    markup.add(types.InlineKeyboardButton("📬 Связаться", url="https://t.me/molux52"))
+    markup.add(types.InlineKeyboardButton("🖼 Portfolio", callback_data='view_portfolio'))
+    markup.add(types.InlineKeyboardButton("📬 Contact", url="https://t.me/vladsqws"))
     markup.add(types.InlineKeyboardButton("📺 YouTube", url="https://www.youtube.com/@molux52"))
     markup.add(types.InlineKeyboardButton("💻 GitHub", url="https://github.com/molux1"))
     bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
@@ -56,7 +56,7 @@ def set_language(call):
 def view_portfolio(call):
     data = load_portfolio()
     if not data:
-        bot.send_message(call.message.chat.id, "😢 Портфолио пока пусто.")
+        bot.send_message(call.message.chat.id, "😢 The portfolio is currently empty.")
         return
     for item in data:
         bot.send_photo(call.message.chat.id, item['file_id'], caption=item['caption'])
