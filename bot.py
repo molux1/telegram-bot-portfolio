@@ -3,8 +3,9 @@ import json
 import os
 from telebot import types
 
-with open('config.json', 'r') as config_file:
-    config = json.load(config_file)
+with open('config.json', 'r') as f:
+    config = json.load(f)
+
 API_TOKEN = config['API_TOKEN']
 ADMIN_ID = config['ADMIN_ID']
 
