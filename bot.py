@@ -3,8 +3,10 @@ import json
 import os
 from telebot import types
 
-API_TOKEN = '7180822092:AAF60_2g4YTd87n1UTkYC-DBOYkxTRkzW4I'
-ADMIN_ID = 2072383039
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
+API_TOKEN = config['API_TOKEN']
+ADMIN_ID = config['ADMIN_ID']
 
 bot = telebot.TeleBot(API_TOKEN)
 PORTFOLIO_FILE = 'portfolio.json'
